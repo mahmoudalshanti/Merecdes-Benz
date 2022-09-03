@@ -1,0 +1,35 @@
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/variables' as *; 
+
+.links{
+    background-color: $secColor;
+    padding: $secPadding 0;
+    overflow: hidden;
+    .container{
+      > h1{
+           margin-bottom: 30px;
+           text-align: center;
+           font: {
+            family:serif;
+            size: 2.5rem;
+           }
+      }
+      .social{
+        text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+         
+         > i{
+           margin: 30px 50px;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: .2s;
+            &:hover{
+                color: rgb(61, 61, 61);
+            }
+         }
+      }
+    }
+}

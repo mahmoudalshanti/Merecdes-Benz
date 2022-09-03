@@ -1,0 +1,16 @@
+@use './SASS/Componet/button';     //import componet
+// import helpers
+@use './SASS/helpers/functions';
+@use './SASS/helpers/mixins';
+@use './SASS/helpers/variables';
+// import layout
+@use './SASS/layout/footer';
+@use './SASS/layout/gridsystem';
+@use './SASS/layout/header';
+// imort home page
+@use './SASS/page/landingpage';
+@use './SASS/page/landingpage-one';
+@use './SASS/page/moddle';
+@use './SASS/page/sym';
+@use './SASS/page/links';
+@use './SASS/page/loop-anams';

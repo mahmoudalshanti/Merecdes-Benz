@@ -1,0 +1,33 @@
+// Screen responsive
+@mixin  screen($var) {
+    @if $var == "small" {
+        @media (max-width:767px) {
+            @content;
+        }
+    }
+    @else if $var =="meduim"{
+        @media (max-width:991px) and (min-width:768px) {
+            @content;
+        }
+    }
+    @else if $var =="large"{
+        @media (max-width:1115px) and (min-width:992px) {
+            @content;
+        }
+    }  
+}
+
+
+// keyFrames With the prefix
+@mixin keyFrame($anamation-name) {
+    @-webkit-keyframes #{$anamation-name}{
+       @content;
+    }
+    @-moz-keyframes #{$anamation-name}{
+       @content;
+    }
+    @keyframes #{$anamation-name}{
+       @content;
+    }
+}
+

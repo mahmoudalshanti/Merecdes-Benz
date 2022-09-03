@@ -1,0 +1,105 @@
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/variables' as *; 
+
+footer{
+    overflow: hidden;
+    background-color: $mainColor;
+    padding: 50px 0;
+    > .container{
+      border-top: 1px solid #ccc;
+      display: flex;
+      flex-wrap: wrap;
+      > .upper{
+        margin: 50px 10px 150px ;
+        display: flex;
+        flex-basis: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+        > ul{
+            display: flex;
+            @include screen(small){
+                flex-direction: column;
+                
+            }
+            > li{
+                margin: 10px;
+               > a{
+                color: #ccc;
+                text-transform: capitalize;
+                font: {
+                    size: .8rem;
+                }
+                &:hover{
+                    text-decoration: underline;
+                    color: $secColor;
+                }
+                }
+            }
+        }
+      }
+      .text{
+         display: flex;
+        > p{
+            color: #ccc;
+            font-size: .8rem;
+            cursor: pointer;
+            text-transform: capitalize;
+            &:nth-child(2){
+                margin-left: 15px;
+                padding-left: 13px;
+                border-left: 1px solid #ccc;  
+            }
+            &:hover{
+                color: $secColor;
+            }
+        }
+      }
+      >.lower{
+        text-align: center;
+        flex-basis: 100%;
+        > img{
+            width: 100px;
+        }
+        > p{
+            color: $secColor;
+            margin-top: 20px;
+            font: {
+                size: 2rem;
+                family:serif;
+            }
+            text-transform: capitalize;
+        }
+        .top{
+            border: 1px solid #eee;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 5px 15px;
+            border-radius: 7px;
+            display: block;
+            > p{
+              color: $secColor;
+              text-transform: capitalize;
+              font: {
+                size: 1.2rem;
+                family:serif;
+            }
+            } 
+            > i{
+                color: $secColor;
+                font-size: 1.2rem;
+            }
+        }
+      }
+    }
+
+}
+
+.author{
+    background-color:$secColor;
+     padding: 10px;
+     text-align: center;
+     color: $mainColor;
+     font-weight: 500;
+}

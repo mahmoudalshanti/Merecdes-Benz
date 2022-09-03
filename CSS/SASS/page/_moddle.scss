@@ -1,0 +1,64 @@
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/variables' as *; 
+
+.moddle{
+    background-color: $secColor;
+    padding: $secPadding 0;
+   > .container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      @include screen(small){
+        &{
+            flex-direction: column;
+        }
+      }
+        > .box{
+            margin-bottom: $secPadding;
+            > img{
+                width: 100%;
+            }
+            .text{
+                text-transform: capitalize;
+                > p{
+                    font-size: 1.2rem;
+                    line-height: 1.6;
+                    font-family: serif;
+                }
+                > h6{
+                    margin-bottom: 20px;
+                    font: {
+                      weight:normal;
+                      size: 1.05rem;
+                    }
+                 }
+            }
+             &:nth-child(1){
+                flex-basis: 100%;
+                > .text{
+                    margin-left: 60px;
+                    > p{
+                        font-size: 1.8rem;
+                        line-height: 1.6;
+                    }
+                }
+             }
+             &:nth-child(2){
+                flex-basis: 42%;
+             }
+             &:nth-child(3){
+                flex-basis: 42%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+             }
+             &:nth-child(4){
+                flex-basis: 42%;
+             }
+             &:nth-child(5){
+                flex-basis: 42%;
+             }
+         }
+    }
+}

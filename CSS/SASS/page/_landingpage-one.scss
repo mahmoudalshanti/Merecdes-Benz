@@ -1,0 +1,143 @@
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/variables' as *; 
+
+.landing-one{
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      opacity: 0;
+      @include keyFrame(use-one) {
+        0%{
+         z-index: 0;
+         opacity: 1;
+        }
+ 
+        50%{
+            z-index: 0;
+            opacity: 1;
+        }
+
+        100%{
+           z-index: -1;
+           opacity: 1;
+        }
+      }
+     
+      animation-name: use-one;
+      animation-duration: 30s;
+      animation-delay: 15s;
+      animation-iteration-count: infinite;
+
+    > .back-cover{
+        height: 100%;
+        width: 100%;
+        > img{
+            width: 100%;
+            height: 100%;
+            object-fit:cover; 
+            object-position: center;
+        }
+    }
+    .text{
+        > {
+          .upper{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 125px;    
+            @include screen(small){
+                left: 20px;
+            }
+            > h1{
+                color: $secColor;
+                text-transform: capitalize;
+                font-weight: normal;
+                margin-bottom: 20px;
+                font-family:serif !important;
+            }
+          }
+           .lower{
+            position: absolute;
+            bottom:30px;
+            left: 125px;
+            @include keyFrame(rotato-2){
+                0%{
+                  bottom: -10px;
+                  opacity: 0;
+                }
+                40%{
+                    opacity: 0;
+                }
+                100%{
+                   bottom: 30px;
+                   opacity: 1;
+                }
+             }
+             animation: rotato-2;   
+             animation-duration: 2s;     
+            @include screen(small){
+                left: 20px;
+            }
+            > p{
+                text-align: center;
+                color: #ccc;
+                font-size: .8rem;
+            }
+            
+         } 
+        }
+    } 
+    > .load-span{
+        position: absolute;
+        right: 45px;
+        top: 50%;
+        transform: translateY(-50%);
+        @include keyFrame(rotato-3){
+            0%{
+              opacity: 0;
+              right: 0;
+            }
+            100%{
+               opacity: 1;
+               right: 45px;
+            }
+         }
+         animation: rotato-3;   
+         animation-duration: 5s;   
+        > .load {
+         background-color: rgba(204, 204, 204, 0.795);
+         width: 1px;
+         height: 80px;
+         margin-bottom: 15px;
+         &:nth-child(1){
+            height: 70px;
+         }
+         &:nth-child(2){
+            height: 150px;
+         }
+         > span{
+            width: 100%;
+            height: 0%;
+            background-color: $secColor;
+            display: block;
+            @include keyFrame(load-spanir){
+                0%{
+                    height: 0;
+                }
+                100%{
+                    height: 100%;
+                }
+            }
+            animation-name:load-spanir;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+  
+         }
+        }
+    }  
+    
+}

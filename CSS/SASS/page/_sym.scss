@@ -1,0 +1,65 @@
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/variables' as *; 
+
+.sym{
+    overflow: hidden;
+    padding: $secPadding 0;
+    background-color: $mainColor;
+
+    .container{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        > .imgs{   
+            flex-basis: 40%; 
+            @include screen(small){
+                &{
+                   flex-basis: 100%;
+                   margin-top: 30px;
+                }
+            }
+        >  img {
+            width: 100%;
+            display: block;
+        }
+    }
+    > .text{
+        flex-basis: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include screen(small){
+            &{
+               flex-basis: 100%;
+               margin-top: 30px;
+            }
+        }
+         .upper > h3{
+            color: $secColor;
+            font-size: .9rem;
+            text-transform: capitalize;
+        }
+       > .upper > p{
+            text-transform: capitalize;
+            max-width: 70%;
+            line-height: 1.6;
+            font: {
+                size: 2.5rem;
+                family:serif;
+            }
+        }
+        >.lower{
+            > p{
+            line-height: 1.6;
+            font-size: .9rem;
+            margin-bottom: 30px; 
+            }
+        }
+        > div{
+            color: $secColor;
+        }
+
+    }
+    }
+}

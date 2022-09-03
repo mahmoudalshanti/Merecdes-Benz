@@ -1,0 +1,378 @@
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/variables' as *; 
+
+header{
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    @include keyFrame(rotato-4){
+       0%{
+        opacity: 0;
+        top: -100%;
+       }
+       100%{
+        opacity: 1;
+        top: 0;
+       }
+    }
+    animation-name: rotato-4;
+    animation-duration: 2s;
+    > .head-sec{
+       display: flex;
+       justify-content: space-between;
+       background-color: $mainColor;
+       align-items: center;
+       padding: 15px 30px;
+       position: relative;
+       > .lang{
+        @media (max-width:$minMeduim) {
+            display: none;
+          }
+        flex-basis: 25%;
+        display: flex;
+        > li:nth-child(2) {
+            margin-left: 10px;
+            margin-right: 60px;
+            padding-left: 18px;
+            border-left: 1px solid #ccc;
+        }
+        li > a{
+            text-transform: capitalize;
+            font-size: .75rem;
+            color: #ccc;
+            &:hover{
+                color: $secColor;
+            }
+            
+        }
+       }
+       > .logo{
+        display: flex;
+        flex-basis: 50%;
+        justify-content: center;
+        @media (max-width:$minMeduim) {
+           position: absolute;
+           left: 51%;
+           transform: translateX(-50%);
+           margin: 0 auto;
+      }
+        a > img{
+            width: 65%;
+        }
+       }
+       > .chozen{
+         display: flex;
+         flex-basis: 25%;
+         justify-content: flex-end;
+         > li {
+           > a {
+               font-size: .75rem;
+               text-transform: capitalize;
+               color: #ccc;
+          
+               > span:nth-child(2){
+                color: #ccc;
+                white-space: nowrap;
+                display: none;
+               }
+               &:hover span:nth-child(1){
+                display: none;
+               }
+               &:hover span:nth-child(2){
+                display: block;
+                
+                + i{
+                    display: none;
+                }
+             }
+               @media (max-width:$minMeduim) {
+                 font-size: 1rem;
+                 > span:nth-child(2){
+                    display: none;
+                    font-size: .9rem;
+                    white-space: nowrap;
+                 }
+                 &:hover span:nth-child(1){
+                    display: none;
+                 }
+                 &:hover span:nth-child(2){
+                    display: block;
+                 }
+           }
+            
+               &:hover{
+                 color: $secColor;
+               }
+                > i{
+                    margin-left: 7px;
+                    @media (max-width:$minMeduim) {
+                        display: none;
+                   }
+                }
+            }
+            &:first-child{
+                margin-right: 38px;
+                @media (max-width:$minMeduim) {
+                    padding:  0;
+                    margin: 0;
+              }
+            }
+            > .menu-display-head {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                top: 100% ;
+                height: calc(100vh - 75.59px);
+                display: none;
+                background-color: rgba(0, 0, 0, 0.726);
+                z-index: 3;
+                overflow: hidden;
+                z-index: 3;
+                @include keyFrame(new){
+                    0%{
+                      height: 0;
+                      top: 700%;
+                      opacity: 0;
+                    }
+                    35%{
+                        opacity: 0;
+                        top: 400%;
+                    }
+                
+                    100%{
+                        height: calc(100vh - 75.59px);
+                        top: 100%;
+                    }
+                }
+                animation-name: new;
+                animation-duration: 1s;
+                animation-timing-function: ease-out;
+                @media (max-width:$minMeduim) {
+                    height: calc(110vh - 49px);
+                    @include keyFrame(new){
+                        0%{
+                          height: 0;
+                          top: 700%;
+                          opacity: 0;
+                        }
+        
+                        100%{
+                            height: calc(110vh - 49px);
+                            top: 100%;
+                            opacity: 1;
+                        }
+                    }
+               }
+                > .search{
+                   margin: 30px 20px;
+
+                    i {
+                        color: $secColor;
+                        font-size: 1.5rem;
+                        margin-right: 10px;
+                    }
+                    > form{
+                        max-width:500px;
+                        margin:  0 auto;
+                        border-bottom: 3px solid #ccc;
+                        padding: 10px;
+                        display: flex;
+                        justify-content: space-between;
+                        transition: .3s;
+                        &:hover{
+                            border: 3px solid cadetblue;
+                        }
+                        > .inpi{
+                            display: flex;
+                            align-items: center;
+                            width: 90%;
+                            > input{
+                                background-color: transparent;
+                                border: none;
+                                outline: none;
+                                font-size: .9rem;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }        
+           }
+           .branch-down{
+            border-top: 2px solid $mainColor;
+            position: absolute;
+            display: flex;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.87);
+            justify-content: center;
+            top: 99%;
+            width: 100%;
+            padding: 20px 10px;
+            transition: .3s;
+            z-index: 2;
+            overflow: hidden;
+            > li{
+                margin-left: 40px;
+                > a{
+                    text-transform: capitalize;
+                    color: #ccc; 
+                    font-size: .8rem;
+                    &:hover{
+                        color: $secColor;
+                    }
+                }
+            }
+           }
+           &:nth-child(2){
+              @media (max-width:$minMeduim) {
+                display: none;
+              }
+           }
+         }
+         & li:hover + .dos > .branch-down{
+              opacity: 0;
+            @include keyFrame(news){
+                0%{
+                top: 99%;
+                opacity: 1;
+                }
+                100%{
+                    top: 200%;
+                    opacity: 0;
+                }
+            }
+            animation-name: news;
+            animation-duration: .5s; 
+         }
+          & li:hover > a + .menu-display-head{
+            display: block;
+          }
+       }
+       .screen-display{
+        flex-basis: 25%;
+        @media (min-width:$minMeduim) {
+            display: none;
+        }
+        > .menu {
+          width: fit-content;
+          > p{
+            color:$secColor;
+             font-size: 1rem;
+             text-transform: capitalize;
+             color: #ccc;
+             cursor: pointer;
+             > span:nth-child(2){
+                display: none;
+             }
+             &:hover span:nth-child(1){
+                display: none;
+             }
+             &:hover span:nth-child(2){
+                display: block;
+             }
+          }
+          > .display-branch-down{
+            @include keyFrame(mores){
+                0%{
+                   height: 0;
+                   opacity: 0;
+                }
+                100%{
+                    height: calc(110vh - 49px);
+                    opacity: 1;
+                }
+            }
+            animation-name: mores;
+            animation-duration: .5s;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.836);
+            left: 0;
+            height: calc(110vh - 49px);
+            display: none;
+            z-index: 2;
+           > .list-of-display{
+            padding-top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            > li{
+                text-align: center;
+                padding: 20px 10px;
+                 cursor: pointer;
+                 @include keyFrame(padd){
+                    0%{
+                        padding: 0;
+                    }
+                    100%{
+                        padding: 20px 10px;
+                    }
+                 }
+                 animation-name: padd;
+                 animation-duration: .5s;
+                > a{
+                    color: #ccc;
+                    text-transform: capitalize;
+                    font-size: .9rem;
+                    &:hover{
+                        color: $secColor;
+                        opacity: 1;
+                    }
+                }
+            }
+          }
+          .login{
+             text-align: center;
+             margin-top: 30px;
+             border-top: 1px solid #ccc;
+             border-bottom: 1px solid #ccc;
+             padding: 20px;
+             margin:  30px 20px;
+             > a{
+
+                color:$secColor;
+                > i {
+                    margin-left:7px;
+                }
+             }
+          }
+          .lang {
+            display: flex;
+            justify-content: center;
+            > li {
+                &.active > a{ 
+                    color: $secColor;
+                }
+                margin-left: 10px;
+                &:nth-child(2){
+                    padding-left: 13px;
+                    border-left: 1px solid #ccc;
+                }
+                > a{
+                    color: #ccc;
+                    text-transform: capitalize;
+                    font-size: .9rem;
+                }
+             }
+          }
+          > p:nth-of-type(2){
+              margin:  30px auto;
+              text-align: center;
+              > a{
+                color: #ccc;
+                font-size: .8rem;
+              }
+          }
+        }
+       }
+       & .menu:hover  > p + .display-branch-down{
+        display: block;
+        
+     }        
+   }
+}   
+}
+   
+    
+

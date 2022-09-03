@@ -1,0 +1,171 @@
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/variables' as *; 
+
+.landing{
+    overflow: hidden;
+    position: relative;
+    @include keyFrame(use) {
+        0%{
+         z-index: -1;
+        }
+         30.5%{
+            z-index: -1;
+         }
+ 
+        100%{
+           z-index: 0;
+           opacity: 1;
+        }
+      }
+      animation-name: use;
+      animation-duration: 30s;
+      animation-delay:15s;
+      animation-iteration-count: infinite;
+    .vedios{
+        width: 100%;
+        height: calc(100vh);
+        overflow: hidden;
+        > video{
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            object-fit:cover; 
+            object-position: center;
+            position: absolute;
+            @include keyFrame(rotato-1){
+                0%{
+                  height: 0;
+                  bottom: 0;
+                }
+                100%{
+                    height: 100%;
+                    bottom: 0;
+                }
+            }
+            animation-name:rotato-1;
+            animation-duration: 2s;
+            @media (min-width:$minSmall) {
+               &:nth-child(2){
+                display: none;
+               }
+             }
+         }
+       
+    }
+    .text{
+    
+        > {
+          .upper{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 125px;
+             @include keyFrame(rotato){
+                0%{
+                  top: 70%;
+                  opacity: 0;
+                }
+                50%{
+                    opacity: 0;
+                }
+                70%{
+                    opacity: .2s;
+                }
+            
+                100%{
+                   top: 50%;
+                   opacity: 1;
+                }
+             }
+             animation: rotato;   
+             animation-duration: 3s;    
+            @include screen(small){
+                left: 20px;
+            }
+            > h1{
+                color: $secColor;
+                text-transform: capitalize;
+                font-weight: normal;
+                margin-bottom: 20px;
+                font-family:serif !important;
+            }
+          }
+           .lower{
+            position: absolute;
+            bottom: 30px;
+            left: 125px;
+            @include keyFrame(rotato-2){
+                0%{
+                  bottom: -10px;
+                  opacity: 0;
+                }
+                40%{
+                    opacity: 0;
+                }
+                100%{
+                   bottom: 30px;
+                   opacity: 1;
+                }
+             }
+             animation: rotato-2;   
+             animation-duration: 2s;     
+            @include screen(small){
+                left: 20px;
+            }
+            > p{
+                text-align: center;
+                color: #ccc;
+                font-size: .8rem;
+            }
+            
+         } 
+        }
+    } 
+   > .load-span{
+        position: absolute;
+        right: 45px;
+        top: 50%;
+        transform: translateY(-50%);
+        @include keyFrame(rotato-3){
+            0%{
+              opacity: 0;
+              right: 0;
+            }
+            100%{
+               opacity: 1;
+               right: 45px;
+            }
+         }
+         animation: rotato-3;   
+         animation-duration: 5s;   
+        > .load {
+         background-color: rgba(204, 204, 204, 0.795);
+         width: 1px;
+         height: 80px;
+         margin-bottom: 15px;
+         &:nth-child(1){
+            height: 150px;
+         }
+         > span{
+            width: 100%;
+            height: 0%;
+            background-color: $secColor;
+            display: block;
+            @include keyFrame(load-spanir){
+                0%{
+                    height: 0;
+                }
+                100%{
+                    height: 100%;
+                }
+            }
+            animation-name:load-spanir;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+  
+         }
+        }
+    }  
+}
